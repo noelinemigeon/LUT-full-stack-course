@@ -8,14 +8,15 @@
     "start": "node app"
   },
   "dependencies": {
-    "express":"*",
-    "mongoose":"*",
-    "bcryptjs":"*",
-    "cors":"*",
-    "jsonwebtoken":"*",
-    "body-parser":"*",
-    "passport":"*",
-    "passport-jwt":"*"
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*"
   },
   "author": "Noëline MIGEON",
   "license": "ISC"

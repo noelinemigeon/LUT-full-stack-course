@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -34,6 +35,14 @@ app.use(express.static(path.join(__dirname,'public')));
 
 //Body Parser Middleware parses incoming request body
 app.use(bodyParser.json());
+
+app.use(session({ secret: 'secret' }));
+
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+require("./config/passport")(passport);
 
 app.use('/users', users)
 
