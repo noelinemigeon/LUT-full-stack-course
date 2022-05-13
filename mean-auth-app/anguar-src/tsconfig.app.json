@@ -3,7 +3,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../public",
-    "types": []
+    "types": [],
+    "noImplicitAny": false,
   },
   "files": [
     "src/main.ts",
