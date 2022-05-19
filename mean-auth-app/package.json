@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "start": "node app",
+    "publishheroku": "cd ../ && git subtree push --prefix mean-auth-app/ mysterious-mountain-06316 mean || true"
   },
   "dependencies": {
     "angular2-flash-messages": "^1.0.8",
