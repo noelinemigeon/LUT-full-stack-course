@@ -7,10 +7,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Always show -->
           <li class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/']">Home</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/login']">Login</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/register']">Register</a></li>
-          <li class="nav-item"><a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a></li>
+          
+          <!-- Only shows if user is not logged in -->
+          <li *ngIf="AuthService.loggedIn()" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/login']">Login</a></li>
+          <li *ngIf="AuthService.loggedIn()" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/register']">Register</a></li>
+
+          <!-- Only shows if logged in -->
+          <li *ngIf="!AuthService.loggedIn()" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/dashboard']">Dashboard</a></li>
+          <li *ngIf="!AuthService.loggedIn()" class="nav-item"><a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/profile']">Profile</a></li>
+          <li *ngIf="!AuthService.loggedIn()" class="nav-item"><a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a></li>
         </ul>
       </div>
     </div>

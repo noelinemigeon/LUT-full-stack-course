@@ -11,8 +11,8 @@ import { Router} from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(
-        private flashMessage:FlashMessagesService,
-    private AuthService: AuthService,
+    private flashMessage:FlashMessagesService,
+    public AuthService: AuthService,
     private router:Router
   ) { }
 
