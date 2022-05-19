@@ -1,0 +1,1 @@
+mean: node mean-auth-app/app.js
