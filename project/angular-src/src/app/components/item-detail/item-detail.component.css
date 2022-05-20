@@ -1,0 +1,4 @@
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:darkmagenta !important;
+    border-color: darkmagenta !important;
+}

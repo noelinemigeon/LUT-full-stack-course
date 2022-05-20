@@ -1,0 +1,19 @@
+
+<div *ngIf="item">
+    <h2>{{item.name}}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Username: {{item.username}}</li>
+        <li class="list-group-item">Ingredients: {{item.ingredients}}</li>
+        <li class="list-group-item">Recipe: {{item.recipe}} </li>
+        <li class="list-group-item">Difficulty: {{item.difficulty}} </li>
+        <li class="list-group-item">Time: {{item.time}} </li>
+        <form (submit)="likeRecipe()">
+            <li class="list-group-item">Likes: {{item.likes}} 
+                <input type="submit" class="btn btn-primary" value="Like this recipe !" 
+                (click)="reloadCurrentPage()">
+            </li> 
+        </form>
+        
+        
+    </ul>
+</div>

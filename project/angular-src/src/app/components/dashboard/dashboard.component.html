@@ -1,0 +1,9 @@
+<h2 class="page-header">All recipes</h2>
+
+<ul class="items">
+
+    <li *ngFor="let item of items"
+    routerLink="/itemDetail/{{item._id}}">
+    <button>{{item.name}}</button>
+</li>
+</ul>
