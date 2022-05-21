@@ -1,5 +1,7 @@
 # LUT-full-stack-course
 
+Student name : Noëline MIGEON
+
 This repository is divided into 6 folders. These 4 folders are the exercises from the tutorials:
 - angular-crash-course
 - express-crash-course
