@@ -19,6 +19,7 @@ import { ItemComponent } from './components/item/item.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { ItemsService } from './services/items.service';
+import { RecipeModifyComponent } from './components/recipe-modify/recipe-modify.component';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
   {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
   {path:'addItem', component:ItemComponent},
   {path:'itemDetail/:id', component: ItemDetailComponent},
-  {path: 'myrecipes',component:RecipesComponent}
+  {path: 'myrecipes',component:RecipesComponent,canActivate:[AuthGuard]},
+  {path: 'itemDetail/:id/modifyRecipe', component:RecipeModifyComponent,canActivate:[AuthGuard]}
 
 ]
 
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     ItemComponent,
     ItemDetailComponent,
-    RecipesComponent
+    RecipesComponent,
+    RecipeModifyComponent
   ],
   imports: [
     BrowserModule,

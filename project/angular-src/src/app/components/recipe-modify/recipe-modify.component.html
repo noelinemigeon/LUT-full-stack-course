@@ -1,0 +1,36 @@
+<div *ngIf="oldRecipe">
+    <div class="row">
+        <div class="column">
+            <app-item-detail></app-item-detail>
+        </div>
+        <div class="column">
+            <h2 class="page-header">Modify your recipe</h2>
+            <form (submit)="modifyRecipe()">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" [(ngModel)]="name" name="name" value={{oldRecipe.name}} autocomplete="on" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Ingredients</label>
+                <input type="text" [(ngModel)]="ingredients" name="ingredients" value={{oldRecipe.ingredients}} autocomplete="on" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Recipe</label>
+                <input type="text" [(ngModel)]="recipe" name="recipe" value={{oldRecipe.recipe}} autocomplete="on" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Difficulty (/5)</label>
+                <input type="number" [(ngModel)]="difficulty" name="difficulty" value={{oldRecipe.difficulty}} autocomplete="on" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Time (min)</label>
+                <input type="number" [(ngModel)]="time" name="time" value={{oldRecipe.time}} autocomplete="on" class="form-control">
+              </div>
+              <input type="submit" class="btn btn-primary btn-sm" value="Modify Recipe">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,10 @@
+.page-header{
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:darkmagenta !important;
+    border-color: darkmagenta !important;
+    margin-left: 5px;
+}

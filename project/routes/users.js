@@ -15,12 +15,27 @@ router.post('/register', (req, res, next) => {
         password: req.body.password
     });
 
-    User.addUser(newUser, (err,user) => {
-        if(err){
-            res.json({success: false, msg:"Failed to register user"});
-
-        } else {
-            res.json({success: true, msg: "User registered"});
+    //Check if username already exists
+    User.getUserByUsername(req.body.username,(err, user) => {
+        if(err) throw err;
+        if(user){ //if user already in db, error
+            return res.json({success:false, msg:"User already exists"});
+        } else { //then, check if email already exists
+            User.getUserByEmail(req.body.email,(err, user) => {
+                if(err) throw err;
+                if(user){ //if email address already in db, error
+                    return res.json({success:false, msg:"Email adress already exists"});
+                } else { //else, add user
+                    User.addUser(newUser, (err,user) => {
+                        if(err){
+                            res.json({success: false, msg:"Failed to register user"});
+                
+                        } else {
+                            res.json({success: true, msg: "User registered"});
+                        }
+                    });
+                }
+            })
         }
     });
 });
@@ -96,6 +111,47 @@ router.post(`/itemDetail/:id/addLike`, (req, res, next) => {
             res.json({success: true, msg: "Like added"});
         }
     });
+});
+
+//Modify recipe
+router.put(`/itemDetail/:id/modifyRecipe`,passport.authenticate("jwt", {session:false}), (req, res, next) => {
+    
+    //Check if username is correct
+    const username_to_check = username;
+
+    //Find owner of the recipe
+    Item.findById(req.params.id,(err, item) => {
+        console.log(req.params.id)
+        if (err) {
+          console.error(err)
+          res.status(500).json({ err: err })
+          return
+        } else {
+            const current_username = item.username //owner of the recipe
+            console.log("Username to check ",username_to_check)
+            console.log("Current username ",current_username)
+            if(current_username!=username_to_check){
+                console.log("Different usernames!")
+                res.json({success: false, msg:"Failed to modify recipe : you don't have the right to modify the recipe"});
+            } else {
+                console.log("Same usernames ! OK")
+                let newRecipe = Item({
+                    name: req.body.name,
+                    ingredients: req.body.ingredients,
+                    recipe: req.body.recipe,
+                    difficulty: req.body.difficulty,
+                    time: req.body.time
+                });
+                Item.modifyRecipe(req.params.id, newRecipe, (err) => {
+                    if(err){
+                        res.json({success: false, msg:"Failed to modify recipe"});
+                    } else {
+                        res.json({success: true, msg: "Recipe modified"});
+                    }
+                });
+            }
+        } 
+    })
 });
 
 //Get items

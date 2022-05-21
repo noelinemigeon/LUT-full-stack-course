@@ -5,3 +5,12 @@
 .col-md-4{
     text-align: center;
 }
+
+h1,h3 {
+    line-height:2em
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}

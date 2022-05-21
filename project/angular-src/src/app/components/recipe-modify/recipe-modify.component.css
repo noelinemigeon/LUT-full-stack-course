@@ -9,4 +9,17 @@
     display:block;
     margin: 0 auto;
     margin-top: 0.5em;
+    margin-bottom: 3em;
 }
+
+.column {
+    float: left;
+    width: 50%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

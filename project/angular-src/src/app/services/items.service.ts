@@ -38,6 +38,33 @@ export class ItemsService {
     return this.http.get<Item>(`http://localhost:3000/users/itemDetail/${id}`).pipe(
     );
   }
+
+  validateRecipe(recipe: { name: any; ingredients: any; recipe: any; difficulty: any; time: any}){
+    if(recipe.name == undefined || recipe.ingredients == undefined || recipe.recipe == undefined || 
+      recipe.difficulty == undefined || recipe.time == undefined) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  validateDifficulty(recipe: { name: any; ingredients: any; recipe: any; difficulty: any; time: any}){
+    if(recipe.difficulty>5 || recipe.difficulty<1) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  validateTime(recipe: { name: any; ingredients: any; recipe: any; difficulty: any; time: any}){
+    if(recipe.time<0) {
+      console.log("wrong time")
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 }
 
 export interface Item {

@@ -46,3 +46,13 @@ module.exports.addItem = function(newItem, callback){
 module.exports.addLike = function(id,callback){
     Item.updateOne({_id:id},{$inc: { likes: 1 }},callback);
 }
+
+module.exports.modifyRecipe = function(id, newRecipe, callback){
+    Item.updateOne({_id:id},{
+        name:newRecipe.name,
+        ingredients:newRecipe.ingredients,
+        recipe:newRecipe.recipe,
+        difficulty:newRecipe.difficulty,
+        time:newRecipe.time
+    },callback);
+}

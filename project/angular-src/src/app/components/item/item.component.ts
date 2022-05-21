@@ -30,6 +30,7 @@ export class ItemComponent implements OnInit {
   }
 
   addItem(){
+
     this.username =localStorage.getItem('username')
     console.log("Username = ",this.username)
     const item = {
@@ -39,6 +40,24 @@ export class ItemComponent implements OnInit {
       difficulty: this.difficulty,
       time: this.time,
       username:this.username
+    }
+
+    //Required Fields
+    if(!this.itemService.validateRecipe(item)){
+      this.flashMessage.show('Please fill in all fields',{cssClass: 'alert-danger',timeout: 3000});
+      return false;
+    }
+
+    //Correct difficulty
+    if(!this.itemService.validateDifficulty(item)){
+      this.flashMessage.show("The difficulty has to be between 1 and 5",{cssClass: 'alert-danger',timeout: 3000});
+      return false;
+    }
+
+    //Correct time
+    if(!this.itemService.validateTime(item)){
+      this.flashMessage.show("The time can't be negative",{cssClass: 'alert-danger',timeout: 3000});
+      return false;
     }
 
     this.itemService.addItem(item).subscribe(data =>{

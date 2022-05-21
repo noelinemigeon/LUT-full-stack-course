@@ -1,4 +1,12 @@
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color:darkmagenta !important;
     border-color: darkmagenta !important;
+    margin-top: 0.5em;
+    margin-right: 2px;
+}
+
+h2{
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
 }

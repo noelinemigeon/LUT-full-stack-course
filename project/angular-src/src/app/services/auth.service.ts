@@ -40,7 +40,15 @@ export class AuthService {
       'Content-Type':'application/json',
       'Authorization': this.authToken,
     });
-    return this.http.get<any>('http://localhost:3000/users/myrecipes', {headers})
+    return this.http.get<any>(`http://localhost:3000/users/myrecipes`, {headers})
+  }
+
+  modifyRecipe(id:any,newRecipe:any){
+    let headers = new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.authToken,
+    });
+    return this.http.put<any>(`http://localhost:3000/users/itemDetail/${id}/modifyRecipe`,newRecipe, {headers});
   }
 
   storeUserData(token:any, user:any){
