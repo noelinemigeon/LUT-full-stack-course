@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app",
-    "publishheroku": "cd ../ && git subtree push --prefix project/ mysterious-mountain-06316 main || true"
+    "publishheroku": "cd ../ && git subtree push --prefix project_heroku/ tasty-recipes-lut main || true"
   },
   "dependencies": {
     "angular2-flash-messages": "^1.0.8",
