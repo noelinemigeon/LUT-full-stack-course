@@ -8,3 +8,5 @@ This repository is divided into 5 folders. These 4 folders are the exercises fro
 
 This folder contains the code related to the project
 - project
+
+The learning diary is attached to this repository.
