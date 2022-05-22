@@ -1,13 +1,14 @@
-# LUT-full-stack-course
+# LUT-full-stack-course - Noëline MIGEON
 
-This repository is divided into 5 folders. These 4 folders are the exercises from the tutorials:
+This repository is divided into 6 folders. These 4 folders are the exercises from the tutorials:
 - angular-crash-course
 - express-crash-course
 - mean-auth-app
 - express-crash-course
 
-This folder contains the code related to the project
-- project
+These folders contains the code related to the project:
+- project : code to run the project locally
+- project_heroku : code to run the project on heroku. The project has been deployed to heroku and can be accessed at the address : https://tasty-recipes-lut.herokuapp.com
 
 To launch the project locally, 4 tasks need to be executed:
 - Create a database in MongoDB : open a mongo shell, and type `use meanauth`
