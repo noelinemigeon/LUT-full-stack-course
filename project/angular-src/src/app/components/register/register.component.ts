@@ -50,10 +50,16 @@ export class RegisterComponent implements OnInit {
     //Register User
     this.AuthService.registerUser(user).subscribe(data => {
       this.dataRegister=data;
-      console.log(data);
+      //console.log("DATA = ",this.dataRegister);
       if(this.dataRegister.success){
         this.FlashMessages.show('You are now registered and can log in',{cssClass: 'alert-success',timeout: 3000});
         this.router.navigate(['/login']);
+      } else if(this.dataRegister.cause=="username"){
+        this.FlashMessages.show('Username already exists : please choose another one.',{cssClass: 'alert-danger',timeout: 3000});
+        this.router.navigate(['/register']);
+      } else if(this.dataRegister.cause=="email"){
+        this.FlashMessages.show('Email already exists : please choose another one.',{cssClass: 'alert-danger',timeout: 3000});
+        this.router.navigate(['/register']);
       } else {
         this.FlashMessages.show('Something went wrong',{cssClass: 'alert-danger',timeout: 3000});
         this.router.navigate(['/register']);

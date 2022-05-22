@@ -19,9 +19,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemService.getItems().subscribe(items_data => {
-      console.log("Type of items_data = ",typeof(items_data))
+      //console.log("Type of items_data = ",typeof(items_data))
       this.items=items_data['items']
-      console.log(this.items)
+      //console.log(this.items)
     }, 
     err => {
       console.log(err);
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
   goToItem(){
     this.id=this.items[0]._id
     //console.log("Items = ",this.items[0]._id) //display the id
-    console.log("ID = ",this.id)
+    //console.log("ID = ",this.id)
     this.router.navigate([`/itemDetail/${this.id}`]);
     //this.itemService.getItem(this])
   }
