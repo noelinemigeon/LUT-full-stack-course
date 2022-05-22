@@ -19,12 +19,12 @@ router.post('/register', (req, res, next) => {
     User.getUserByUsername(req.body.username,(err, user) => {
         if(err) throw err;
         if(user){ //if user already in db, error
-            return res.json({success:false, msg:"User already exists"});
+            return res.json({success:false, cause:"username", msg:"User already exists"});
         } else { //then, check if email already exists
             User.getUserByEmail(req.body.email,(err, user) => {
                 if(err) throw err;
                 if(user){ //if email address already in db, error
-                    return res.json({success:false, msg:"Email adress already exists"});
+                    return res.json({success:false, cause:"email", msg:"Email adress already exists"});
                 } else { //else, add user
                     User.addUser(newUser, (err,user) => {
                         if(err){

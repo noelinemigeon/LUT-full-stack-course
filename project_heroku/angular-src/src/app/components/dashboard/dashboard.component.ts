@@ -19,12 +19,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemService.getItems().subscribe(items_data => {
-      console.log("Type of items_data = ",typeof(items_data))
+      //console.log("Type of items_data = ",typeof(items_data))
       this.items=items_data['items']
-      console.log(this.items)
+      //console.log(this.items)
     }, 
     err => {
-      console.log(err);
+      //console.log(err);
       return false;
     });
   }
